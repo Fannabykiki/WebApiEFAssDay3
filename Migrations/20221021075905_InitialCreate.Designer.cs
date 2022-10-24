@@ -11,7 +11,7 @@ using WebApiAssigment2.Models;
 namespace WebApiAssigment2.Migrations
 {
     [DbContext(typeof(ProductStoreContext))]
-    [Migration("20221020050948_InitialCreate")]
+    [Migration("20221021075905_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,13 @@ namespace WebApiAssigment2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryName = "Computer"
+                        });
                 });
 
             modelBuilder.Entity("WebApiAssigment2.Models.Product", b =>
@@ -73,17 +80,26 @@ namespace WebApiAssigment2.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Product", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            Manufacture = "Test",
+                            ProductName = "Casio"
+                        });
                 });
 
             modelBuilder.Entity("WebApiAssigment2.Models.Product", b =>
                 {
-                    b.HasOne("WebApiAssigment2.Models.Category", "category")
+                    b.HasOne("WebApiAssigment2.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("category");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("WebApiAssigment2.Models.Category", b =>

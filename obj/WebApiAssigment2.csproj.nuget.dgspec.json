@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Rookies\\CodeC#\\WebApiAssigment2\\WebApiAssigment2.csproj": {}
+    "D:\\Rookies\\CodeC#\\WebApiAssigment2\\WebApiAssigment2.csproj": {}
   },
   "projects": {
-    "d:\\Rookies\\CodeC#\\WebApiAssigment2\\WebApiAssigment2.csproj": {
+    "D:\\Rookies\\CodeC#\\WebApiAssigment2\\WebApiAssigment2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Rookies\\CodeC#\\WebApiAssigment2\\WebApiAssigment2.csproj",
+        "projectUniqueName": "D:\\Rookies\\CodeC#\\WebApiAssigment2\\WebApiAssigment2.csproj",
         "projectName": "WebApiAssigment2",
-        "projectPath": "d:\\Rookies\\CodeC#\\WebApiAssigment2\\WebApiAssigment2.csproj",
+        "projectPath": "D:\\Rookies\\CodeC#\\WebApiAssigment2\\WebApiAssigment2.csproj",
         "packagesPath": "C:\\Users\\phanl\\.nuget\\packages\\",
-        "outputPath": "d:\\Rookies\\CodeC#\\WebApiAssigment2\\obj\\",
+        "outputPath": "D:\\Rookies\\CodeC#\\WebApiAssigment2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\phanl\\AppData\\Roaming\\NuGet\\NuGet.Config",

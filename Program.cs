@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using WebApiAssigment2.Models;
+using WebApiAssigment2.Repositories;
+using WebApiAssigment2.Repositories.Interfaces;
+using WebApiAssigment2.Services;
+using WebApiAssigment2.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ProductStoreContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DBConnString")));
 builder.Services.AddControllers();
-builder.Services.AddControllers();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddHttpContextAccessor();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

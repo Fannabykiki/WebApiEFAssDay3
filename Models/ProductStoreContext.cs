@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApiAssigment2.Models
@@ -34,10 +30,6 @@ namespace WebApiAssigment2.Models
                             .ToTable("Product")
                             .HasKey(p => p.Id);
             modelBuilder.Entity<Product>()
-                            .HasOne<Category>(p => p.category)
-                            .WithMany(p => p.Products)
-                            .HasForeignKey(p => p.CategoryId);
-            modelBuilder.Entity<Product>()
                             .Property(p => p.Id)
                             .HasColumnName("ProductId")
                             .HasColumnType("int")
@@ -53,15 +45,28 @@ namespace WebApiAssigment2.Models
                             .Property(p => p.Manufacture)
                             .HasColumnName("Manufacture")
                             .HasColumnType("nvarchar")
-                            .HasMaxLength(500)
-                            .IsRequired();
+                            .HasMaxLength(500);
             modelBuilder.Entity<Product>()
                             .Property(p => p.CategoryId)
                             .HasColumnName("CategoryId")
                             .HasColumnType("int")
                             .IsRequired();
+            modelBuilder.Entity<Category>()
+                           .HasData(new Category
+                           {
+                               Id = 1,
+                               CategoryName = "Computer"
+                           });
+            modelBuilder.Entity<Product>()
+                            .HasData(new Product
+                            {
+                                Id = 1,
+                                ProductName = "Casio",
+                                CategoryId = 1,
+                                Manufacture = "Test"
+                            });
         }
-        public DbSet<Product> products { get; set; } = null!;
+        public DbSet<Product> Products { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
     }
 }
